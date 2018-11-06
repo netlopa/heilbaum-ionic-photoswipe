@@ -25,6 +25,7 @@ export class HeilbaumPhotoswipeComponent implements OnInit, AfterViewInit {
 
     private items: Array<PhotoswipeItem> = [];
     private options: Object = {};
+	public afterChangeCallback: any;
 
     public gallery: any = null;
 
@@ -41,6 +42,9 @@ export class HeilbaumPhotoswipeComponent implements OnInit, AfterViewInit {
         this.heilBaumPhotoSwipeId = 'heilbaum-photoswiper-' + this.id;
 
         this.renderer.setElementClass(this.elementRef.nativeElement, this.heilBaumPhotoSwipeId, true);
+		
+		this.afterChangeCallback = this.navParams.get('afterChangeCallback');
+		
     }
 
     /**
@@ -49,6 +53,7 @@ export class HeilbaumPhotoswipeComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         this.items = this.navParams.get('items');
         this.options = this.navParams.get('options') ? this.navParams.get('options') : {};
+		
     }
 
     /**
@@ -64,6 +69,17 @@ export class HeilbaumPhotoswipeComponent implements OnInit, AfterViewInit {
             // This is required to remove component from DOM
             this.viewCtrl.dismiss();
         });
+				
+		var aftrChangeCallback = this.afterChangeCallback;
+		
+		this.gallery.listen('afterChange', function() { 
+ 
+			if (aftrChangeCallback!=null)	{
+				aftrChangeCallback.execute(this.getCurrentIndex());
+			}
+
+		});
+		
     }
 
 }

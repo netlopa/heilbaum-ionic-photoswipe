@@ -53,8 +53,8 @@ export class HeilbaumPhotoswipeController {
      * @param options
      * @returns {HeilbaumPhotoswipe}
      */
-    create(items: Array<PhotoswipeItem>, options: PhotoswipeOptions = {}) {
-        return new HeilbaumPhotoswipe(this._app, {items, options})
+    create(items: Array<PhotoswipeItem>, options: PhotoswipeOptions = {}, afterChangeCallback : any = null) {
+        return new HeilbaumPhotoswipe(this._app, {items, options, afterChangeCallback})
     }
 
 }

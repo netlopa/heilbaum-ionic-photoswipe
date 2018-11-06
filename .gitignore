@@ -12,3 +12,7 @@ Thumbs.db
 
 # WebStorm generated files
 .idea
+
+# Misc
+package-lock.json
+

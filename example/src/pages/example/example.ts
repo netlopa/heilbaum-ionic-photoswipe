@@ -159,10 +159,21 @@ export class ExamplePage {
       clickToCloseNonZoomable: false,
       showHideOpacity: true
     };
+	
+	var afterChangeCallback = {
+				
+		execute : function(i=-1) {
+			console.log('afterChangeCallback called with arg '+i);
+		}
+	};
 
-    const pswp: HeilbaumPhotoswipe = this.pswpCtrl.create(this.photoswipeItems, options);
+    const pswp: HeilbaumPhotoswipe = this.pswpCtrl.create(this.photoswipeItems, options, afterChangeCallback);
     pswp.present({ animate: false });
     pswp.setLeavingOpts({ animate: false });
+	
+	//Execute callback for image opening 
+	afterChangeCallback.execute(index);
+	
   }
 
 }
