@@ -16,14 +16,16 @@ declare const PhotoSwipeUI_Default: any;
     styles: [PhotoswipeStyles, PhotoswipeDefaultSkin],
     template: PhotoswipeTemplate,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None 
 })
 export class HeilbaumPhotoswipeComponent implements OnInit, AfterViewInit {
 
     private id: number;
     private heilBaumPhotoSwipeId: string;
 
-    private items: Array<PhotoswipeItem> = [];
+    public showThumbs: number = 0;
+    public items: Array<PhotoswipeItem>; //  = [];
+    public prova: string;
     private options: Object = {};
 	public afterChangeCallback: any;
 
@@ -38,6 +40,16 @@ export class HeilbaumPhotoswipeComponent implements OnInit, AfterViewInit {
      * @param viewCtrl
      */
     constructor(private elementRef: ElementRef, private navParams: NavParams, private renderer: Renderer, private viewCtrl: ViewController) {
+
+	this.prova = 'assets/images/1.jpg';
+
+        this.items = this.navParams.get('items');
+	console.log('ho caricato gli items da navParams '+JSON.stringify(this.items));
+	let test = this.items[0];
+	let srcTest= test.src;
+
+	console.log('test = '+srcTest);
+
         this.id = ++heilBaumPhotoSwipeId;
         this.heilBaumPhotoSwipeId = 'heilbaum-photoswiper-' + this.id;
 
@@ -55,6 +67,21 @@ export class HeilbaumPhotoswipeComponent implements OnInit, AfterViewInit {
         this.options = this.navParams.get('options') ? this.navParams.get('options') : {};
 		
     }
+
+   toggleThumbs() {
+	
+	if (this.showThumbs==1) this.showThumbs=0;
+	else this.showThumbs=1;
+  
+   }
+
+   showSlide(nrSlide) {
+	
+	let idxItem = this.items.indexOf(nrSlide);
+	console.log('trying to go to slide nr. '+idxItem);
+	this.gallery.goTo(idxItem);
+
+	}
 
     /**
      * Angular 2 Lifecycle Hook

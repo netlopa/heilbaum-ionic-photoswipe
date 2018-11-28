@@ -3,6 +3,14 @@ const PhotoswipeStyles = `/*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe
 	Styles for basic PhotoSwipe functionality (sliding area, open/close transitions)
 */
 /* pswp = photoswipe */
+.xfooter {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 99999;
+}
+
+
 .pswp {
   display: none;
   position: absolute;
@@ -172,6 +180,7 @@ const PhotoswipeDefaultSkin = `/*! PhotoSwipe Default UI CSS by Dmitry Semenov |
 	1. Buttons
  */
 /* <button> css reset */
+
 .pswp__button {
   width: 44px;
   height: 44px;
@@ -200,7 +209,7 @@ const PhotoswipeDefaultSkin = `/*! PhotoSwipe Default UI CSS by Dmitry Semenov |
     padding: 0;
     border: 0; }
 /* pswp__ui--over-close class it added when mouse is over element that should close gallery */
-.pswp__ui--over-close .pswp__button--close {
+.pswp__ui--over-close .pswp__button--close { 
   opacity: 1; }
 .pswp__button,
 .pswp__button--arrow--left:before,
@@ -222,6 +231,10 @@ const PhotoswipeDefaultSkin = `/*! PhotoSwipe Default UI CSS by Dmitry Semenov |
   background-position: 0 -44px; }
 .pswp__button--share {
   background-position: -44px -44px; }
+.pswp__button--thumbs {
+  background-position: -132px -44px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="white" d="M96 176h80V96H96v80zm120 240h80v-80h-80v80zm-120 0h80v-80H96v80zm0-120h80v-80H96v80zm120 0h80v-80h-80v80zM336 96v80h80V96h-80zm-120 80h80V96h-80v80zm120 120h80v-80h-80v80zm0 120h80v-80h-80v80z"/></svg>') 0 0 no-repeat !important; 
+  }
 .pswp__button--fs {
   display: none; }
 .pswp--supports-fs .pswp__button--fs {
@@ -568,6 +581,12 @@ a.pswp__share--download:hover {
 .pswp__element--disabled {
   display: none !important; }
 .pswp--minimal--dark .pswp__top-bar {
-  background: none; }`;
+  background: none; }
+  
+.pswp__caption__center {
+	margin-left:0;
+}
+
+`;
 
 export { PhotoswipeStyles, PhotoswipeDefaultSkin};

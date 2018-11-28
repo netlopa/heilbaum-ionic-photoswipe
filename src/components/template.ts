@@ -22,6 +22,7 @@ const PhotoswipeTemplate = `<!-- Root element of PhotoSwipe. Must have class psw
                 <button class="pswp__button pswp__button--share" title="Share"></button>
                 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
                 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+				<button (click)="toggleThumbs()" class="pswp__button pswp__button--thumbs" title="Show/Hide thumbnails"></button>
                 <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
                 <!-- element will get class pswp__preloader--active when preloader is running -->
                 <div class="pswp__preloader">
@@ -39,11 +40,29 @@ const PhotoswipeTemplate = `<!-- Root element of PhotoSwipe. Must have class psw
             </button>
             <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
             </button>
+	    
+
             <div class="pswp__caption">
                 <div class="pswp__caption__center"></div>
             </div>
-        </div>
-    </div>
-</div>`;
+</div>
+</div>
+</div>        
+    
+
+<div class="xfooter" style="height:200px;width:100%;" *ngIf="showThumbs==1">
+
+<div class="wrapper-slide">
+		<ion-slides slidesPerView="5" loop="false" pager="true" class="height-auto" #slide2>
+
+			<ion-slide *ngFor="let item of items">
+        			<img (click)="showSlide(item)" src="{{item.src}}" alt="">
+    			</ion-slide>
+		</ion-slides>
+	</div>
+
+
+</div>
+`;
 
 export { PhotoswipeTemplate };
