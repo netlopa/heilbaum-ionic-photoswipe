@@ -7,9 +7,17 @@ const PhotoswipeStyles = `/*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe
     position: fixed;
     bottom: 0;
     width: 100%;
+	height: 15%;
     z-index: 99999;
 }
 
+.xfakearea {
+    position: fixed;
+    top: 0;
+    width: 100%;
+	height: 85%;
+    z-index: 99999;
+}
 
 .pswp {
   display: none;

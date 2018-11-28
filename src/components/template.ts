@@ -50,7 +50,11 @@ const PhotoswipeTemplate = `<!-- Root element of PhotoSwipe. Must have class psw
 </div>        
     
 
-<div class="xfooter" style="height:200px;width:100%;" *ngIf="showThumbs==1">
+<div class="xfakearea" (click)="toggleThumbs()" style="width:100%;" *ngIf="showThumbs==1">
+&nbsp;
+</div>
+
+<div class="xfooter" style="width:100%;" *ngIf="showThumbs==1">
 
 <div class="wrapper-slide">
 		<ion-slides slidesPerView="5" loop="false" pager="true" class="height-auto" #slide2>
