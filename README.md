@@ -3,6 +3,18 @@ This component provides the fabulous PhotoSwipe gallery within ionic 2.
 
 For demo and documentation see [demo.heilbaum.de/heilbaum-ionic-photoswipe/](https://demo.heilbaum.de/heilbaum-ionic-photoswipe/)
 
+## Getting started
+
+In order to run the example of this library you need to execute the following commands:
+
+```
+npm i
+npm run-script build
+cd example
+npm i
+ionic serve
+```
+
 ## License
 MIT License
 
